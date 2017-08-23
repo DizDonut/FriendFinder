@@ -3,29 +3,268 @@
   <head>
     <meta charset="utf-8">
     <title>Friend Finder</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../Assets/CSS/style.css">
+    <!-- Latest compiled and minified CSS & JS -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  	<script src="https://code.jquery.com/jquery.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  	<!-- Font Awesome -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  	<!-- Chosen -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
         <h1>
-
+          Survey Questions
         </h1>
       </div>
-    </div>
-    <div class="footer">
-      <p>
-        <a href="/">
-          Back to Home
-        </a>
-        <a href="/api/friends">
-          API Friends List
-        </a>
-         |
-         <a target="_blank" href="https://github.com/DizDonut/FriendFinder">Github Repo</a>
-      </p>
-    </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>
+            <span class="glyphicon glyphicon-user"></span>
+            About You</h2>
+          </div>
+        <div class="panel-body">
+          <label for="userName">Enter Your Name (Required)</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="userName" aria-describedby="basic-addon3">
+          </div>
+          <hr>
+          <label for="picURL">Post a Link to Your Picture</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="picURL" aria-describedby="basic-addon3">
+          </div>
+        </div> <!-- end panel-body -->
+      </div> <!-- end panel-default -->
+
+        <h3><strong>Question 1</strong></h3>
+          <h4>It's gonna take a lot to drag me away from you</h4>
+          <select data-placeholder="" class="chosen-select" id="q1" style="display: none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 2</strong></h3>
+          <h4>My milkshake brings all the boys to the yard</h4>
+          <select data-placeholder="" class="chosen-select" id="q2" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 3</strong></h3>
+          <h4>It takes two to make a thing go right</h4>
+          <select data-placeholder="" class="chosen-select" id="q3" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 4</strong></h3>
+          <h4>I stick to the rivers and lakes that I'm used to</h4>
+          <select data-placeholder="" class="chosen-select" id="q4" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 5</strong></h3>
+          <h4>Life is demanding without understanding</h4>
+          <select data-placeholder="" class="chosen-select" id="q5" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 6</strong></h3>
+          <h4>I'll be there for you, these five words I swear to you</h4>
+          <select data-placeholder="" class="chosen-select" id="q6" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 7</strong></h3>
+          <h4>Me I'm supa fly, supa dupa fly</h4>
+          <select data-placeholder="" class="chosen-select" id="q7" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 8</strong></h3>
+          <h4>If you try to knock me you'll get mocked, I'll stir fry you in my wok</h4>
+          <select data-placeholder="" class="chosen-select" id="q8" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 9</strong></h3>
+          <h4>It's been too harding living, but I'm afraid to die</h4>
+          <select data-placeholder="" class="chosen-select" id="q9" style="display:none;">
+            <option value=""></option>
+            <option value="1">1 (Strong Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+
+        <h3><strong>Question 10</strong></h3>
+        <h4>I keep my Moet et Chandon in a pretty cabinent</h4>
+        <select data-placeholder="" class="chosen-select" id="q10" style="display:none;">
+          <option value=""></option>
+          <option value="1">1 (Strong Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+            <hr>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+               Submit
+            </button>
+            <hr>
+      <div class="footer">
+        <p>
+          <a href="/">
+            Back to Home
+          </a>
+          |
+          <a target="_blank" href="/api/friends">
+            API Friends List
+          </a>
+          |
+          <a target="_blank" href="https://github.com/DizDonut/FriendFinder">Github Repo</a>
+        </p>
+      </div> <!-- end footer -->
+    </div> <!-- end container -->
+
+    <!-- Modal -->
+  	<div id="resultsModal" class="modal fade" role="dialog">
+  	  <div class="modal-dialog">
+
+  	    <!-- Modal content-->
+  	    <div class="modal-content">
+  	      <div class="modal-header">
+  	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+  	        <h2 class="modal-title"><strong>Best Match</strong></h2>
+  	      </div>
+  	      <div class="modal-body">
+  	        <h2 id="matchName"></h2>
+  	        <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+  	      </div>
+  	      <div class="modal-footer">
+  	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  	      </div>
+        </div> <!-- end modal content -->
+  	  </div>
+  	</div> <!-- end modal -->
+
+    <script type="text/javascript">
+
+    // Chosen CSS
+    $(".chosen-select").chosen({width: "35%"});
+
+        var config = {
+          '.chosen-select'           : {},
+          '.chosen-select-deselect'  : {allow_single_deselect:true},
+          '.chosen-select-no-single' : {disable_search_threshold:10},
+          '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+          '.chosen-select-width'     : {width:"95%"},
+        }
+        for (var selector in config) {
+          $(selector).chosen(config[selector]);
+        }
+
+        // Capture the form inputs
+        $("#submit").on("click", function(){
+
+          	// Form validation
+          	function validateForm() {
+      		  var isValid = true;
+      		  $('.form-control').each(function() {
+      		    if ( $(this).val() === '' )
+      		        isValid = false;
+      		  });
+
+      		  $('.chosen-select').each(function() {
+
+      		  	if( $(this).val() === "")
+      		  		isValid = false
+      		  })
+      		  return isValid;
+      		}
+
+    		// If all required fields are filled
+    		if (validateForm() == true)
+    		{
+    			// Create an object for the user's data
+    	    	var userData = {
+    	    		name: $("#userName").val(),
+    	    		photo: $("#picURL").val(),
+    	    		scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9"), $("#q10").val()]
+    	    	}
+
+
+    	    	// Grab the URL of the website
+    	    	var currentURL = window.location.origin;
+
+    	    	// AJAX post the data to the friends API.
+    	    	$.post(currentURL + "/api/friends", userData, function(data){
+
+    	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+    	    		$("#matchName").text(data.name);
+    	    		$('#matchImg').attr("src", data.photo);
+
+    		    	// Show the modal with the best match
+    		    	$("#resultsModal").modal('toggle');
+
+    	    	});
+    		}
+    		else
+    		{
+    			alert("Please fill out all fields before submitting!");
+    		}
+
+        	return false;
+        });
+
+
+      </script>
+
   </body>
 </html>
