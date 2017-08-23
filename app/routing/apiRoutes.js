@@ -22,7 +22,9 @@ module.exports = function(app){
 
   app.post("/api/friends", function(req, res){
     friends.push(req.body);
-    console.log(req.body);
-    console.log(friends);
+
+    
+
+    res.json(friends);
   });
 }
