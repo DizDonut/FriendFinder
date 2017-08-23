@@ -1,12 +1,9 @@
-var friends = require("./friends.json");
+var friendArray = [
+  {
+    name: "Mike Bechtel",
+    photo: "http://i.imgur.com/D2OmgUY.jpg",
+    scores: [5,3,4,2,1,3,4,5,2,1]
+  }
+]
 
-
-newSurveyResult();
-
-// ----------- Functions --------------- //
-function newSurveyResult(){
-  var newUser = [];
-  newUser.push(friends[friends.length-1].scores);
-  console.log(newUser[0]);
-  return newUser[0];
-}
+module.exports = friendArray;

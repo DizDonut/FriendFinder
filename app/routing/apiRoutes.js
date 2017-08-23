@@ -1,41 +1,28 @@
-// Dependencies
-// =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
-var path = require("path");
-var url = require("url");
-var fs = require("fs");
-// rerquire friends here to access the Friend array of objects
-var friends = require("../data/friends.json");
+// Creating the API routes and exporting them for use
+// in the main server file.
 
-// Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = process.env.PORT || 3000;
+// create variable linking our friends list from the friends.js file
+var friends = require("../data/friends.js");
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+// ----------- Routes ------------ //
 
-// GET route to display a JSON of all possible friends
-app.get("/api/friends", function(req, res){
-  res.json(friends);
-});
+module.exports = function(app){
+  // GET Request
+  // The code below handles when a user visits the
+  // API friends list page
 
-// POST route to handle incoming survey results
-app.post("/api/friends", function(req, res){
-  var newFriend = req.body;
+  app.get("/api/friends", function(req, res){
+    res.json(friends);
+  });
 
-  console.log(newFriend);
-  friends.push(newFriend);
-  fs.writeFile("../data/friends.json", JSON.stringify(friends, null, 2));
-  res.json(newFriend);
-});
+  // POST Request
+  // The code below handles when a user submits the survey
+  // form (as a JSON object) and is pushed to the friends
+  // object in the friends.js file
 
-
-// listener
-app.listen(PORT, function(){
-  console.log("App listening on PORT " + PORT);
-});
+  app.post("/api/friends", function(req, res){
+    friends.push(req.body);
+    console.log(req.body);
+    console.log(friends);
+  });
+}
