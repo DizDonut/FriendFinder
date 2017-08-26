@@ -17,55 +17,57 @@ module.exports = function(app){
 
   // POST Request
   // The code below handles when a user submits the survey
-  // form (as a JSON object) and is pushed to the friends
-  // object in the friends.js file
+  // form (as a JSON object)
 
   app.post("/api/friends", function(req, res){
 
     var newUserName = req.body.name;
     var newUserPic = req.body.photo;
-
     var newUserScores = req.body.scores.map(function(item){
       return parseInt(item, 10)
     });
 
-    console.log(newUserScores);
-
-    console.log(friends);
-
-    var difference;
     var sum = 0;
     var differences = [];
-    var score1 = [];
-    var score2 = [];
-
-    //No clue how to get this logic to work...
 
     for (var i = 0; i < friends.length; i++) {
+
       for (var j = 0; j < friends[i].scores.length; j++) {
 
-        score1.push(newUserScores[j]);
-        console.log("\nNew User Score for Question " + [j+1] + ": " + score1[j]);
-        score2.push(friends[i].scores[j]);
-        console.log("Friends Array Score for Question " + [j+1] + ": " + score2[j]);
-
-        differences.push(Math.abs(score1[j] - score2[j]));
-
-        console.log("Difference: " + differences[j]);
+        differences.push(Math.abs(newUserScores[j] - friends[i].scores[j]));
 
       }//end inner loop
 
-      console.log("Diff Array: " + differences);
+      console.log("\nDiff Array: " + differences);
+      //loop through differences array and get the total value; assign to sum variable
       for (var k = 0; k < differences.length; k++) {
         sum += differences[k];
       }
 
       console.log("Sum of differences: " + sum);
-      friends.diff = sum;
-      console.log("Friend diff key: " + friends.diff);
+      //assign the diff key with the sum of the values in the differences array
+      friends[i].diff = sum;
+      console.log("Friend diff key: " + friends[i].diff);
+
+      //reset accumulator and emtpy differences array
+      sum = 0;
+      differences = [];
+
     }//end outer loop
 
-    res.json(friends);
+    //Use Math.min.apply and the map functions to search through the
+    //friends array of objects, and returns the object's minimum diff value
+      var min = Math.min.apply(null, friends.map(function(item){
+        return item.diff;
+      }));
 
+
+    //find index of the smallest value in the object
+    var index = friends.findIndex(x => x.diff===min);
+
+    //return the object at the index equal to the value of the index var assigned above
+    res.json(friends);
+    console.log(friends[index]);
+    return friends[index];
   });
 }

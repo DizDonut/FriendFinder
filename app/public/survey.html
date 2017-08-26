@@ -188,14 +188,14 @@
   	        <img id="matchImg" src="" alt="">
   	      </div>
   	      <div class="modal-footer">
-  	        <!-- <button type="button" class="btn btn-" data-dismiss="modal">Close</button> -->
+  	        <button type="button" class="btn btn-" data-dismiss="modal">Close</button>
             <a href="/">
               <button type="button" class="btn btn-primary">Back to Home</button>
             </a>
           </div>
         </div> <!-- end modal content -->
   	  </div>
-  	</div> <!-- end modal -->
+  	</div> <!-- end results modal -->
 
     <script type="text/javascript">
 
@@ -251,15 +251,11 @@
           var q9 = $("#q9").val();
           var q10 = $("#q10").val();
 
-          console.log(q1 + " " + q2 + " " + q3);
-
-            var userData = {
-    	    		name: name,
-    	    		photo: pic,
-    	    		scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
-    	    	}
-
-            console.log(userData);
+          var userData = {
+  	    		name: name,
+  	    		photo: pic,
+  	    		scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+  	    	}
 
     	    	// Grab the URL of the website
     	    	var currentURL = window.location.origin;
